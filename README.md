@@ -51,6 +51,7 @@ http://hg.mozilla.org/mozilla-central/file/tip/extensions/universalchardet/
 
 - Others
   - WINDOWS-1252
+  - US-ASCII
 
 All supported encodings are listed in ``org.mozilla.universalchardet.Constants.``
 

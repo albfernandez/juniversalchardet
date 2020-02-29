@@ -53,7 +53,7 @@ public class ShortStringTests {
 
 	@Test
 	public void testShortString() throws UnsupportedEncodingException {		
-		Assert.assertNull(guessCharsetName("abcd".getBytes()));
+		Assert.assertEquals("US-ASCII", guessCharsetName("abcd".getBytes()));
 //		Assert.assertNull(guessCharsetName("Ábcd".getBytes("ISO-8859-15")));
 	}
 

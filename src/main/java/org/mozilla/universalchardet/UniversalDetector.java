@@ -288,7 +288,10 @@ public class UniversalDetector
             }
         } else if (this.inputState == InputState.ESC_ASCII) {
             // do nothing
-        } else {
+        } else if (this.inputState == InputState.PURE_ASCII && this.gotData) {
+        	this.detectedCharset = Constants.CHARSET_US_ASCCI;
+        }
+        else {
             // do nothing
         }
     }

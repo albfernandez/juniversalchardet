@@ -7,6 +7,17 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BasicFileEncodingDetectionTest {
+
+	
+	public BasicFileEncodingDetectionTest() throws IOException {
+		super();
+	}
+	
+	
+	@Test
+	public void testASCII() throws IOException {
+		Assert.assertEquals("US-ASCII", getFileEncoding("ascii.txt"));
+	}
 	
 	@Test
 	public void testUTF8 () throws IOException {
