@@ -58,9 +58,7 @@ public class Bug8VariousFailedCharsets {
 	    UniversalDetector detector = new UniversalDetector();
 	    detector.handleData(data);
 	    detector.dataEnd();
-    	System.out.println("done?:"  + detector.isDone());
     	String detected = detector.getDetectedCharset();
-    	System.out.println("detected:" + detected);
     	detector.reset();
     	
     	return detected;
