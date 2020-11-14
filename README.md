@@ -18,6 +18,7 @@ http://hg.mozilla.org/mozilla-central/file/tip/extensions/universalchardet/
   - BIG-5
   - EUC-TW
   - HZ-GB-2312
+  - GB-18030
 
 - Cyrillic
   - ISO-8859-5
