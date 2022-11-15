@@ -146,7 +146,7 @@ public class SBCSGroupProber extends CharsetProber {
 					continue;
 				}
 				st = prober.handleData(newbuf.array(), 0, newbuf.position());
-				if (st == ProbingState.FOUND_IT) {
+				if (st == ProbingState.FOUND_IT || 0.99f == prober.getConfidence()) {
 					this.bestGuess = prober;
 					this.state = ProbingState.FOUND_IT;
 					break;

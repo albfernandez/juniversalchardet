@@ -213,7 +213,7 @@ public class UniversalDetector {
                 this.escCharsetProber = new EscCharsetProber();
             }
             st = this.escCharsetProber.handleData(buf, offset, length);
-            if (st == CharsetProber.ProbingState.FOUND_IT) {
+            if (st == CharsetProber.ProbingState.FOUND_IT || 0.99f == this.escCharsetProber.getConfidence()) {
                 this.done = true;
                 this.detectedCharset = this.escCharsetProber.getCharSetName();
             }

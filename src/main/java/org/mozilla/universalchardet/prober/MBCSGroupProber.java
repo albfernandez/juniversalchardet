@@ -58,12 +58,13 @@ public class MBCSGroupProber extends CharsetProber {
 		super();
 
 
+		
+		probers.add(new GB18030Prober());
 		probers.add(new UTF8Prober());
+		probers.add(new Big5Prober());
 		probers.add(new SJISProber());
 		probers.add(new EUCJPProber());
-		probers.add(new GB18030Prober());
 		probers.add(new EUCKRProber());
-		probers.add(new Big5Prober());
 		probers.add(new EUCTWProber());
 
 		reset();
@@ -137,7 +138,7 @@ public class MBCSGroupProber extends CharsetProber {
         		continue;
         	}
         	st = prober.handleData(highbyteBuf, 0, highpos);
-        	if (st == ProbingState.FOUND_IT) {
+        	if (st == ProbingState.FOUND_IT || 0.99f == prober.getConfidence()) {
                 this.bestGuess = prober;
                 this.state = ProbingState.FOUND_IT;
                 break;

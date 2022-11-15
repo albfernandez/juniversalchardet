@@ -64,6 +64,8 @@ public final class Constants {
     public static final String CHARSET_US_ASCCI     = "US-ASCII".intern();
     public static final String CHARSET_US_ASCII     = "US-ASCII".intern();
     
+    public static final String CHARSET_GBK          = "GBK".intern();
+    
     
     // WARNING: Listed below are charsets which Java does not support.
     public static final String CHARSET_HZ_GB_2312   = "HZ-GB-2312".intern(); // Simplified Chinese
