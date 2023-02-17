@@ -83,12 +83,12 @@ public final class ReaderFactory {
 	 */
 	public static BufferedReader createBufferedReader(byte[] data, Charset defaultCharset) throws IOException {
 		Charset cs = Objects.requireNonNull(defaultCharset, "defaultCharset must be not null");
-		String detectedEncoding;
+		String detectedEncoding = null;
 		try (InputStream is = new ByteArrayInputStream(data)) {
 			detectedEncoding = UniversalDetector.detectCharset(is);
 		}
 
-		if (Objects.nonNull(detectedEncoding)) {
+		if (detectedEncoding != null) {
 			cs = Charset.forName(detectedEncoding);
 		}
 
