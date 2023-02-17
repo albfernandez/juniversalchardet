@@ -74,8 +74,9 @@ public final class ReaderFactory {
 		return createBufferedReader(file, Charset.defaultCharset());
 	}
 
+	
 	/**
-	 * Create a reader from a file with correct encoding
+	 * Create a reader from a byte array with correct encoding
 	 * @param data The byte[] to read from
 	 * @param defaultCharset defaultCharset to use if can't be determined
 	 * @return BufferedReader for the file with the correct encoding
@@ -91,12 +92,14 @@ public final class ReaderFactory {
 		if (detectedEncoding != null) {
 			cs = Charset.forName(detectedEncoding);
 		}
-
-		return new BufferedReader(new InputStreamReader(new UnicodeBOMInputStream(new ByteArrayInputStream(new String(data, cs).getBytes(cs)))));
+		if (!cs.name().contains("UTF")) {
+			return new BufferedReader(new InputStreamReader(new ByteArrayInputStream(data), cs));
+		}
+		return new BufferedReader(new InputStreamReader(new UnicodeBOMInputStream(new ByteArrayInputStream(data))));
 	}
 	
 	/**
-	 * Create a reader from a byte[] with correct encoding. If charset cannot be determined, 
+	 * Create a reader from a byte array with correct encoding. If charset cannot be determined, 
 	 * it uses the system default charset.
 	 * @param data The byte[] to read from
 	 * @return BufferedReader for the file with the correct encoding
