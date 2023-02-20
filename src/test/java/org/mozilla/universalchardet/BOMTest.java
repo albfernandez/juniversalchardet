@@ -8,24 +8,24 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BOMTest {
+public class BOMTest {
 
 	private static final String TEST_STRING = "========================================================================";
 
 	@Test
-	void testUTF8() throws IOException {
+	public void testUTF8() throws IOException {
 
 		assertEquals(TEST_STRING, getFirstLine("utf8.txt"));
 	}
 
 	@Test
-	void testUTF8N() throws IOException {
+	public void testUTF8N() throws IOException {
 
 		assertEquals(TEST_STRING, getFirstLine("utf8n.txt"));
 	}
 
 	@Test
-	void testUTF16LE() throws IOException {
+	public void testUTF16LE() throws IOException {
 
 		assertEquals(TEST_STRING, getFirstLine("utf16le.txt"));
 	}

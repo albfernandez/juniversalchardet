@@ -10,13 +10,13 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Bug20LatinDetectedAsMaccyrillicTest {
+public class Bug20LatinDetectedAsMaccyrillicTest {
 
 	private static final String TEST_STRING = "ÄÜÖßäöü,Name1ÄÜÖßäöü,Name2ÄÜÖßäöü,Name3ÄÜÖßäöü,StreetÄÜÖßäöü,MÄÜÖßäöü,DE,80080,München,ContactÄÜÖßäöü,+49(0)ÄÜÖßäöü,ÄÜÖßäöü@gls-itservices.com,CommentÄÜÖßäöü,+49,(0)98,765,432,BlÄÜÖßäöü";
 
 	@Test
 	@Disabled("Bug not fixed yet")
-	void testFile() throws IOException {
+	public void testFile() throws IOException {
 
 		File testFile = new File("src/test/resources/bug20-example-latin.txt");
 		String originalEncoding = UniversalDetector.detectCharset(testFile);
@@ -25,7 +25,7 @@ class Bug20LatinDetectedAsMaccyrillicTest {
 
 	@Test
 	@Disabled("Bug not fixed yet")
-	void testLatin() {
+	public void testLatin() {
 
 		UniversalDetector detector = new UniversalDetector();
 		detector.handleData(TEST_STRING.getBytes(Charset.forName("WINDOWS-1252")));
@@ -35,7 +35,7 @@ class Bug20LatinDetectedAsMaccyrillicTest {
 	}
 
 	@Test
-	void testUTF8() {
+	public void testUTF8() {
 
 		UniversalDetector detector = new UniversalDetector();
 		detector.handleData(TEST_STRING.getBytes(StandardCharsets.UTF_8));

@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ShortStringTests {
+public class ShortStringTests {
 
 	ShortStringTests() {
 
@@ -18,7 +18,7 @@ class ShortStringTests {
 	// Tets case for https://github.com/albfernandez/juniversalchardet/issues/22
 	@Test
 	@Disabled("data too short")
-	void testDecodeBytes() {
+	public void testDecodeBytes() {
 
 		final String string = "aeaCàêäÇ";
 		Charset s;
@@ -36,7 +36,7 @@ class ShortStringTests {
 	// Tets case for https://github.com/albfernandez/juniversalchardet/issues/22
 	// With less accute characters, it's improved detection
 	@Test
-	void testDecodeBytesBetterStats() {
+	public void testDecodeBytesBetterStats() {
 
 		final String string = "Château";
 		Charset s;
@@ -52,7 +52,7 @@ class ShortStringTests {
 	}
 
 	@Test
-	void testShortString() {
+	public void testShortString() {
 
 		assertEquals("US-ASCII", guessCharsetName("abcd".getBytes()));
 	}

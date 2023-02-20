@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-class PkgIntTest {
+public class PkgIntTest {
 
 	@Test
 	void testUnpack() {

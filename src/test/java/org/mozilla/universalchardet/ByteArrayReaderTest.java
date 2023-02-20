@@ -8,12 +8,12 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ByteArrayReaderTest {
+public class ByteArrayReaderTest {
 
 	private final String TEST_STRING = "°";
 
 	@Test
-	void utf8() throws IOException {
+	public void utf8() throws IOException {
 
 		try (BufferedReader bufferedReader = ReaderFactory.createBufferedReader(
 				TEST_STRING.getBytes(StandardCharsets.UTF_8))) {
@@ -22,7 +22,7 @@ class ByteArrayReaderTest {
 	}
 
 	@Test
-	void ISO_8859_1() throws IOException {
+	public void ISO_8859_1() throws IOException {
 
 		try (BufferedReader bufferedReader = ReaderFactory.createBufferedReader(
 				TEST_STRING.getBytes(StandardCharsets.ISO_8859_1))) {

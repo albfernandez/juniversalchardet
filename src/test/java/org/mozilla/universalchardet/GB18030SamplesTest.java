@@ -7,16 +7,16 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GB18030SamplesTest {
+public class GB18030SamplesTest {
 
 	@Test
-	void testGB18030Sample() throws IOException {
+	public void testGB18030Sample() throws IOException {
 
 		assertEquals("GB18030", getFileEncoding("gb2312-sample.txt"));
 	}
 
 	@Test
-	void testGBKSample() throws IOException {
+	public void testGBKSample() throws IOException {
 
 		assertEquals("GB18030", getFileEncoding("gbk-sample.txt"));
 	}

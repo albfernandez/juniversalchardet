@@ -7,10 +7,10 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TIS620BasicTest {
+public class TIS620BasicTest {
 
 	@Test
-	void testTIS620() throws IOException {
+	public void testTIS620() throws IOException {
 
 		assertEquals("TIS620", getFileEncoding("tis620.txt"));
 	}
