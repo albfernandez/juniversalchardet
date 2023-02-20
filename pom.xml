@@ -51,6 +51,18 @@
 		<version.spotbugs-maven-plugin>4.4.2.2</version.spotbugs-maven-plugin>
 		<version.findsecbugs-plugin>1.11.0</version.findsecbugs-plugin>
 		<version.sb-contrib>7.4.7</version.sb-contrib>
+		<junit.version>5.9.2</junit.version>
+		<commons-codec.version>1.15</commons-codec.version>
+		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<nexus-staging-maven-plugin.version>1.6.6</nexus-staging-maven-plugin.version>
+		<maven-compiler-plugin-jdk7.version>3.7.0</maven-compiler-plugin-jdk7.version>
+		<findbugs-maven-plugin-jdk7.version>3.0.5</findbugs-maven-plugin-jdk7.version>
+		<maven-compiler-plugin-jdk8.version>3.7.0</maven-compiler-plugin-jdk8.version>
+		<maven-compiler-plugin-jdk9.version>3.8.1</maven-compiler-plugin-jdk9.version>
 	</properties>
 
 
@@ -58,13 +70,13 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.9.2</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.15</version>
+			<version>${commons-codec.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -76,12 +88,12 @@
           <!-- For more, refer https://maven.apache.org/surefire/maven-surefire-plugin/ -->
 	          <groupId>org.apache.maven.plugins</groupId>
 	          <artifactId>maven-surefire-plugin</artifactId>
-	          <version>2.22.2</version>
+	          <version>${maven-surefire-plugin.version}</version>
 	        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.0.2</version>
+				<version>${maven-jar-plugin.version}</version>
 				<configuration>
 					<archive>
 						<manifestEntries>
@@ -97,7 +109,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>${maven-source-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -110,7 +122,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>${maven-javadoc-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -126,7 +138,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.6</version>
+				<version>${maven-gpg-plugin.version}</version>
 				<configuration>
 					<keyname>${gpg.keyname}</keyname>
 					<passphraseServerId>${gpg.keyname}</passphraseServerId>
@@ -144,7 +156,7 @@
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.6</version>
+				<version>${nexus-staging-maven-plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<serverId>ossrh</serverId>
@@ -167,7 +179,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.7.0</version>
+						<version>${maven-compiler-plugin-jdk7.version}</version>
 						<configuration>
 							<excludes>
 								<exclude>module-info.java</exclude>
@@ -179,7 +191,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>findbugs-maven-plugin</artifactId>
-						<version>3.0.5</version>
+						<version>${findbugs-maven-plugin-jdk7.version}</version>
 						<executions>
 							<execution>
 								<id>findbugs-check</id>
@@ -203,7 +215,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.7.0</version>
+						<version>${maven-compiler-plugin-jdk8.version}</version>
 						<configuration>
 							<excludes>
 								<exclude>module-info.java</exclude>
@@ -257,7 +269,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.8.1</version>
+						<version>${maven-compiler-plugin-jdk9.version}</version>
 						<executions>
 							<execution>
 								<id>default-compile</id>
