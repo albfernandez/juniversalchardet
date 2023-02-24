@@ -10,8 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShortStringTests {
 
-	ShortStringTests() {
-
+	public ShortStringTests() {
 		super();
 	}
 

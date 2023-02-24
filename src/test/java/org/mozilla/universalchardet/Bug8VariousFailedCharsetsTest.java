@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /*
  * This charset detection fails because too little data to analize
  */
-class Bug8VariousFailedCharsetsTest {
+public class Bug8VariousFailedCharsetsTest {
 
 	@Test
 	@Disabled
-	void test1() throws Exception {
+	public void test1() throws Exception {
 		/*
 =?KR?B?wPzDvCCwy7v2?=
 전체 검색
@@ -26,7 +26,7 @@ class Bug8VariousFailedCharsetsTest {
 	}
 
 	@Test
-	void test2() throws Exception {
+	public void test2() throws Exception {
 		/*
 =?wws-874?B?W1Nhbm9va10gt7TKzbq70a3L0qHSw83o0rnA0snS5LfCzdWhpMPR6acg8fLz?=
 [Sanook] ทดสอบปัญหาการอ่านภาษาไทยอีกครั้ง ๑๒๓
@@ -40,7 +40,7 @@ class Bug8VariousFailedCharsetsTest {
 
 	@Test
 	@Disabled
-	void test3() throws Exception {
+	public void test3() throws Exception {
 /*
 =?gb2312?B?zfjS19PKz+TX1Lavu9i4tDo=?= Re: �˲ű�
 网易邮箱自动回复: Re: 人才表	
