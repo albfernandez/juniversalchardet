@@ -108,30 +108,4 @@ public final class ReaderFactory {
 	public static BufferedReader createBufferedReader(byte[] data) throws IOException {
 		return createBufferedReader(data, Charset.defaultCharset());
 	}
-	
-	/**
-	 * Create a reader from a file with the correct encoding
-	 * @param file The file to read from
-	 * @param defaultCharset defaultCharset to use if can't be determined
-	 * @return Reader for the file with the correct encoding
-	 * @throws java.io.IOException if some I/O error occurs
-	 * @deprecated Use {@link #createBufferedReader(File, Charset)}
-	 * 	 
-	 */
-	@Deprecated
-	public static Reader createReaderFromFile(File file, Charset defaultCharset) throws IOException {
-		return createBufferedReader(file, defaultCharset);
-	}
-	/**
-	 * Create a reader from a file with the correct encoding. If charset cannot be determined, 
-	 * it uses the system default charset.
-	 * @param file The file to read from
-	 * @return Reader for the file with the correct encoding
-	 * @throws java.io.IOException if some I/O error occurs
-	 * @deprecated Use {@link #createBufferedReader(File)}
-	 */
-	@Deprecated
-	public static Reader createReaderFromFile(File file) throws IOException {
-		return createReaderFromFile(file, Charset.defaultCharset());
-	}
 }
