@@ -231,11 +231,8 @@ public class UniversalDetector {
         }
     }
     
-    public static String detectCharsetFromBOM(final byte[] buf) {
-    	return detectCharsetFromBOM(buf, 0);
-    }
     
-	private static String detectCharsetFromBOM(final byte[] buf, int offset) {
+	protected static String detectCharsetFromBOM(final byte[] buf, int offset) {
 		if (buf.length > (offset + 3)) {
 			int b1 = buf[offset] & 0xFF;
 			int b2 = buf[offset+1] & 0xFF;
