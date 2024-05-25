@@ -30,8 +30,7 @@ package org.mozilla.universalchardet;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.charset.CharsetDecoder;
 import java.util.Objects;
 
 /**
@@ -55,12 +54,16 @@ public final class ReaderFactory {
 		String detectedEncoding = UniversalDetector.detectCharset(file);
 		if (detectedEncoding != null) {
 			cs = Charset.forName(detectedEncoding);
-		}		
-		if (!cs.name().contains("UTF")) {
-			return Files.newBufferedReader(file.toPath(), cs);			
 		}
-		Path path = file.toPath();
-		return new BufferedReader(new InputStreamReader(new UnicodeBOMInputStream(new BufferedInputStream(Files.newInputStream(path))), cs));
+		//noinspection IOStreamConstructor
+		InputStream fis = new FileInputStream(file);
+		if (!cs.name().contains("UTF")) {
+			// replaced return Files.newBufferedReader(file.toPath(), cs); for ANDROID
+			CharsetDecoder decoder = cs.newDecoder();
+			Reader reader = new InputStreamReader(fis, decoder);
+			return new BufferedReader(reader);
+		}
+		return new BufferedReader(new InputStreamReader(new UnicodeBOMInputStream(new BufferedInputStream(fis)), cs));
 	}
 	
 	/**

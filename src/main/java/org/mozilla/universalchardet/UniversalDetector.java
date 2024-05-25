@@ -52,8 +52,12 @@ import static org.mozilla.universalchardet.Constants.CHARSET_UTF_8;
 import static org.mozilla.universalchardet.Constants.CHARSET_X_ISO_10646_UCS_4_2143;
 import static org.mozilla.universalchardet.Constants.CHARSET_X_ISO_10646_UCS_4_3412;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -350,7 +354,9 @@ public class UniversalDetector {
      * @throws IOException if some IO error occurs
      */
     public static String detectCharset(File file) throws IOException {
-        return detectCharset(file.toPath());
+        try (InputStream fis = new BufferedInputStream(new FileInputStream(file))) {
+		    return detectCharset(fis);
+	    }
     }
 
     /**
@@ -361,7 +367,8 @@ public class UniversalDetector {
      * @throws IOException if some IO error occurs
      */
     public static String detectCharset(Path path) throws IOException {
-        try (InputStream fis = new BufferedInputStream(Files.newInputStream(path))) {
+	    //noinspection NewApi It's impossible to create a Path object on API<26
+	    try (InputStream fis = new BufferedInputStream(Files.newInputStream(path))) {
             return detectCharset(fis);
         }
     }
