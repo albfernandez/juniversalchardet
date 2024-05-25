@@ -42,8 +42,7 @@ package org.mozilla.universalchardet.prober.sequence;
 import org.mozilla.universalchardet.Constants;
 
 
-public class HebrewModel extends SequenceModel
-{
+public class HebrewModel extends SequenceModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -53,8 +52,7 @@ public class HebrewModel extends SequenceModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public HebrewModel()
-    {
+	public HebrewModel() {
         super(
                 win1255CharToOrderMap,
                 hebrewLangModel,

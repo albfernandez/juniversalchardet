@@ -37,7 +37,9 @@
  * ***** END LICENSE BLOCK ***** */
 package org.mozilla.universalchardet.example;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.mozilla.universalchardet.UniversalDetector;
 
@@ -50,7 +52,7 @@ public class TestDetector {
 
 		byte[] buf = new byte[4096];
 		String fileName = args[0];
-		try (FileInputStream fis = new FileInputStream(fileName)) {
+		try (InputStream fis = Files.newInputStream(Paths.get(fileName))) {
 
 			// (1)
 			UniversalDetector detector = new UniversalDetector();

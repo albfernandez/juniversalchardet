@@ -1,4 +1,4 @@
-#juniversalchardet
+# juniversalchardet
 
 
 ## What is it?
@@ -18,6 +18,7 @@ http://hg.mozilla.org/mozilla-central/file/tip/extensions/universalchardet/
   - BIG-5
   - EUC-TW
   - HZ-GB-2312
+  - GB-18030
 
 - Cyrillic
   - ISO-8859-5
@@ -51,6 +52,7 @@ http://hg.mozilla.org/mozilla-central/file/tip/extensions/universalchardet/
 
 - Others
   - WINDOWS-1252
+  - US-ASCII
 
 All supported encodings are listed in ``org.mozilla.universalchardet.Constants.``
 
@@ -82,7 +84,7 @@ public class TestDetector
   public static void main(String[] args)
   {
     byte[] buf = new byte[4096];
-    java.io.FileInputStream fis = new java.io.FileInputStream("test.txt");
+    java.io.InputStream fis = java.nio.file.Files.newInputStream(java.nio.file.Paths.get("test.txt"));
 
     // (1)
     UniversalDetector detector = new UniversalDetector();
@@ -152,7 +154,7 @@ public class TestCreateReaderFromFile {
 		java.io.Reader reader = null;
 		try {
 			java.io.File file = new java.io.File(args[0]);
-			reader = ReaderFactory.createReaderFromFile(file);
+			reader = ReaderFactory.createBufferedReader(file);
 			
 			// Do whatever you want with the reader
 		}
@@ -177,9 +179,17 @@ Put this dependency in your pom.xml
 <dependency>
 	<groupId>com.github.albfernandez</groupId>
 	<artifactId>juniversalchardet</artifactId>
-	<version>2.0.1</version>
+	<version>2.0.4-SNAPSHOT</version>
 </dependency>
 
+```
+
+## Getting with gradle
+
+Put this line in your build.gradle
+
+```groovy
+implementation 'com.github.albfernandez:juniversalchardet:2.0.4-SNAPSHOT'
 ```
 
 ## Building from sources
@@ -212,9 +222,7 @@ Alternatively, the library may be used under the terms of either
 the GNU General Public License Version 2 or later, or the GNU
 Lesser General Public License 2.1 or later.
 
-
 ## Compatibility
-
 
 juniversalchardet requires JDK 7 or higher.
 

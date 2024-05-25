@@ -56,8 +56,8 @@ public class EncodingDetectorInputStream extends InputStream {
 		in.close();
 	}
 
-	public void mark(int arg0) {
-		in.mark(arg0);
+	public void mark(int readlimit) {
+		in.mark(readlimit);
 	}
 
 	public boolean markSupported() {

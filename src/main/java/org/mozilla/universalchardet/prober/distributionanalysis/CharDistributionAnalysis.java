@@ -38,8 +38,7 @@
 package org.mozilla.universalchardet.prober.distributionanalysis;
 
 
-public abstract class CharDistributionAnalysis
-{
+public abstract class CharDistributionAnalysis {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -61,16 +60,14 @@ public abstract class CharDistributionAnalysis
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public CharDistributionAnalysis()
-    {
+	public CharDistributionAnalysis() {
         reset();
     }
     
-    public void handleData(final byte[] buf, int offset, int length)
-    {}
+	public void handleData(final byte[] buf, int offset, int length) {
+	}
     
-    public void handleOneChar(final byte[] buf, int offset, int charLength)
-    {
+	public void handleOneChar(final byte[] buf, int offset, int charLength) {
         int order = -1;
         
         if (charLength == 2) {
@@ -87,8 +84,7 @@ public abstract class CharDistributionAnalysis
         }
     }
     
-    public float getConfidence()
-    {
+	public float getConfidence() {
         if (this.totalChars <= 0 || this.freqChars <= MINIMUM_DATA_THRESHOLD) {
             return SURE_NO;
         }
@@ -104,17 +100,15 @@ public abstract class CharDistributionAnalysis
         return SURE_YES;
     }
     
-    public void reset()
-    {
+	public final void reset() {
         this.totalChars = 0;
         this.freqChars = 0;
     }
     
-    public void setOption()
-    {}
+	public void setOption() {
+	}
     
-    public boolean gotEnoughData()
-    {
+	public boolean gotEnoughData() {
         return (this.totalChars > ENOUGH_DATA_THRESHOLD);
     }
     

@@ -45,8 +45,7 @@ import org.mozilla.universalchardet.prober.statemachine.SMModel;
 import org.mozilla.universalchardet.Constants;
 
 
-public class EUCTWProber extends CharsetProber
-{
+public class EUCTWProber extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -63,8 +62,7 @@ public class EUCTWProber extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public EUCTWProber()
-    {
+	public EUCTWProber() {
         super();
         this.codingSM = new CodingStateMachine(smModel);
         this.distributionAnalyzer = new EUCTWDistributionAnalysis();
@@ -73,28 +71,22 @@ public class EUCTWProber extends CharsetProber
     }
     
     @Override
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         return Constants.CHARSET_EUC_TW;
     }
 
     @Override
-    public float getConfidence()
-    {
-        float distribCf = this.distributionAnalyzer.getConfidence();
-        
-        return distribCf;
+	public float getConfidence() {
+        return this.distributionAnalyzer.getConfidence();
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         int codingState;
         
         int maxPos = offset + length;
@@ -131,13 +123,12 @@ public class EUCTWProber extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
-        this.codingSM.reset();
-        this.state = ProbingState.DETECTING;
-        this.distributionAnalyzer.reset();
-        java.util.Arrays.fill(this.lastChar, (byte)0);
-    }
+	public final void reset() {
+		this.codingSM.reset();
+		this.state = ProbingState.DETECTING;
+		this.distributionAnalyzer.reset();
+		java.util.Arrays.fill(this.lastChar, (byte) 0);
+	}
 
     @Override
     public void setOption()

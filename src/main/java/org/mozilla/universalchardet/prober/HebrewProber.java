@@ -40,8 +40,7 @@ package org.mozilla.universalchardet.prober;
 import org.mozilla.universalchardet.Constants;
 
 
-public class HebrewProber extends CharsetProber
-{
+public class HebrewProber extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -77,23 +76,20 @@ public class HebrewProber extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public HebrewProber()
-    {
+	public HebrewProber() {
         super();
         this.logicalProber = null;
         this.visualProber = null;
         reset();
     }
     
-    public void setModalProbers(CharsetProber logicalProber, CharsetProber visualProber)
-    {
+	public void setModalProbers(CharsetProber logicalProber, CharsetProber visualProber) {
         this.logicalProber = logicalProber;
         this.visualProber = visualProber;
     }
 
     @Override
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         // If the final letter score distance is dominant enough, rely on it.
         int finalsub = this.finalCharLogicalScore - this.finalCharVisualScore;
         if (finalsub >= MIN_FINAL_CHAR_DISTANCE) {
@@ -122,14 +118,12 @@ public class HebrewProber extends CharsetProber
     }
 
     @Override
-    public float getConfidence()
-    {
+	public float getConfidence() {
         return 0.0f;
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         // Remain active as long as any of the model probers are active.
         if ((this.logicalProber.getState() == ProbingState.NOT_ME) &&
             (this.visualProber.getState() == ProbingState.NOT_ME)) {
@@ -140,8 +134,7 @@ public class HebrewProber extends CharsetProber
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         if (getState() == ProbingState.NOT_ME) {
             return ProbingState.NOT_ME;
         }
@@ -173,8 +166,7 @@ public class HebrewProber extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
+	public final void reset() {
         this.finalCharLogicalScore = 0;
         this.finalCharVisualScore = 0;
         
@@ -185,11 +177,10 @@ public class HebrewProber extends CharsetProber
     }
 
     @Override
-    public void setOption()
-    {}
-    
-    protected static boolean isFinal(byte b)
-    {
+	public void setOption() {
+	}
+
+	protected static boolean isFinal(byte b) {
         int c = b & 0xFF;
         return (
                 c == FINAL_KAF ||
@@ -200,8 +191,7 @@ public class HebrewProber extends CharsetProber
                 );
     }
     
-    protected static boolean isNonFinal(byte b)
-    {
+	protected static boolean isNonFinal(byte b) {
         int c = b & 0xFF;
         return (
                 c == NORMAL_KAF ||

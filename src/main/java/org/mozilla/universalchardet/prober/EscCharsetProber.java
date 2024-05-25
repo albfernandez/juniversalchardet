@@ -45,8 +45,7 @@ import org.mozilla.universalchardet.prober.statemachine.ISO2022JPSMModel;
 import org.mozilla.universalchardet.prober.statemachine.ISO2022KRSMModel;
 
 
-public class EscCharsetProber extends CharsetProber
-{
+public class EscCharsetProber extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -64,8 +63,7 @@ public class EscCharsetProber extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public EscCharsetProber()
-    {
+	public EscCharsetProber() {
         super();
 
         this.codingSM = new CodingStateMachine[4];
@@ -78,26 +76,22 @@ public class EscCharsetProber extends CharsetProber
     }
     
     @Override
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         return this.detectedCharset;
     }
 
     @Override
-    public float getConfidence()
-    {
+	public float getConfidence() {
         return 0.99f;
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         int codingState;
         
         int maxPos = offset + length;
@@ -127,17 +121,16 @@ public class EscCharsetProber extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
-        this.state = ProbingState.DETECTING;
-        for (int i=0; i<this.codingSM.length; ++i) {
-            this.codingSM[i].reset();
-        }
-        this.activeSM = this.codingSM.length;
-        this.detectedCharset = null;
-    }
+	public final void reset() {
+		this.state = ProbingState.DETECTING;
+		for (int i = 0; i < this.codingSM.length; ++i) {
+			this.codingSM[i].reset();
+		}
+		this.activeSM = this.codingSM.length;
+		this.detectedCharset = null;
+	}
 
-    @Override
-    public void setOption()
-    {}
+	@Override
+	public void setOption() {
+	}
 }

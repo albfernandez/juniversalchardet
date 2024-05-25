@@ -41,8 +41,7 @@ package org.mozilla.universalchardet.prober;
 import java.nio.ByteBuffer;
 
 
-public abstract class CharsetProber
-{
+public abstract class CharsetProber {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -60,19 +59,17 @@ public abstract class CharsetProber
     ////////////////////////////////////////////////////////////////
     // inner types
     ////////////////////////////////////////////////////////////////
-    public enum ProbingState
-    {
-        DETECTING,
-        FOUND_IT,
-        NOT_ME
-    }
+	public enum ProbingState {
+		DETECTING, FOUND_IT, NOT_ME
+	}
 
     
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public CharsetProber()
-    {}
+	public CharsetProber() {
+		super();
+	}
     
     public abstract String getCharSetName();
     public abstract ProbingState handleData(final byte[] buf, int offset, int length);
@@ -82,8 +79,7 @@ public abstract class CharsetProber
     public abstract void setOption();
 
     // ByteBuffer.position() indicates number of bytes written.
-    public ByteBuffer filterWithoutEnglishLetters(final byte[] buf, int offset, int length)
-    {
+	public ByteBuffer filterWithoutEnglishLetters(final byte[] buf, int offset, int length) {
         ByteBuffer out = ByteBuffer.allocate(length);
         
         boolean meetMSB = false;
@@ -122,8 +118,7 @@ public abstract class CharsetProber
         return out;
     }
     
-    public ByteBuffer filterWithEnglishLetters(final byte[] buf, int offset, int length)
-    {
+	public ByteBuffer filterWithEnglishLetters(final byte[] buf, int offset, int length) {
         ByteBuffer out = ByteBuffer.allocate(length);
         
         boolean isInTag = false;
@@ -164,14 +159,12 @@ public abstract class CharsetProber
         return out;
     }
 
-    private boolean isAscii(byte b)
-    {
-        return ((b & 0x80) == 0);
-    }
+	private boolean isAscii(byte b) {
+		return ((b & 0x80) == 0);
+	}
     
     // b must be in ASCII code range (MSB can't be 1).
-    private boolean isAsciiSymbol(byte b)
-    {
+	private boolean isAsciiSymbol(byte b) {
         int c = b & 0xFF;
         return ((c < ASCII_A_CAPITAL) ||
                 (c > ASCII_Z_CAPITAL && c < ASCII_A) ||

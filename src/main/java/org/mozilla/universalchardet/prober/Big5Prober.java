@@ -45,8 +45,7 @@ import org.mozilla.universalchardet.prober.statemachine.SMModel;
 import org.mozilla.universalchardet.Constants;
 
 
-public class Big5Prober extends CharsetProber
-{
+public class Big5Prober extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -63,8 +62,7 @@ public class Big5Prober extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public Big5Prober()
-    {
+	public Big5Prober() {
         super();
         this.codingSM = new CodingStateMachine(smModel);
         this.distributionAnalyzer = new Big5DistributionAnalysis();
@@ -73,28 +71,22 @@ public class Big5Prober extends CharsetProber
     }
 
     @Override
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         return Constants.CHARSET_BIG5;
     }
 
     @Override
-    public float getConfidence()
-    {
-        float distribCf = this.distributionAnalyzer.getConfidence();
-        
-        return distribCf;
+	public float getConfidence() {
+        return this.distributionAnalyzer.getConfidence();
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         int codingState;
         
         int maxPos = offset + length;
@@ -131,8 +123,7 @@ public class Big5Prober extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
+	public final void reset() {
         this.codingSM.reset();
         this.state = ProbingState.DETECTING;
         this.distributionAnalyzer.reset();
@@ -140,6 +131,7 @@ public class Big5Prober extends CharsetProber
     }
 
     @Override
-    public void setOption()
-    {}
+	public void setOption() {
+    	//
+	}
 }

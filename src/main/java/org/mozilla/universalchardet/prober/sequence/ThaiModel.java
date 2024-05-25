@@ -51,8 +51,7 @@ public class ThaiModel extends SequenceModel {
     // //////////////////////////////////////////////////////////////
     // methods
     // //////////////////////////////////////////////////////////////
-    public ThaiModel()
-    {
+	public ThaiModel() {
         super(thaiCharToOrderMap, thaiLangModel, TYPICAL_POSITIVE_RATIO, false, Constants.CHARSET_TIS620);
     }
 

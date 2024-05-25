@@ -40,8 +40,7 @@ package org.mozilla.universalchardet.prober;
 
 import org.mozilla.universalchardet.prober.sequence.SequenceModel;
 
-public class SingleByteCharsetProber extends CharsetProber
-{
+public class SingleByteCharsetProber extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -76,8 +75,7 @@ public class SingleByteCharsetProber extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public SingleByteCharsetProber(SequenceModel model)
-    {
+	public SingleByteCharsetProber(SequenceModel model) {
         super();
         this.model = model;
         this.reversed = false;
@@ -99,14 +97,12 @@ public class SingleByteCharsetProber extends CharsetProber
         reset();
     }
     
-    boolean keepEnglishLetters()
-    {
+	boolean keepEnglishLetters() {
         return this.model.getKeepEnglishLetter();
     }
 
     @Override
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         if (this.nameProber == null) {
             return this.model.getCharsetName();
         } else {
@@ -115,8 +111,7 @@ public class SingleByteCharsetProber extends CharsetProber
     }
 
     @Override
-    public float getConfidence()
-    {
+	public float getConfidence() {
         if (this.totalSeqs > 0) {
             float r = 1.0f * this.seqCounters[POSITIVE_CAT] / this.totalSeqs / this.model.getTypicalPositiveRatio();
             r = r * this.freqChar / this.totalChar;
@@ -130,14 +125,12 @@ public class SingleByteCharsetProber extends CharsetProber
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         short order;
         
         int maxPos = offset + length;
@@ -176,8 +169,7 @@ public class SingleByteCharsetProber extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
+	public final void reset() {
         this.state = ProbingState.DETECTING;
         this.lastOrder = 255;
         for (int i=0; i<NUMBER_OF_SEQ_CAT; ++i) {

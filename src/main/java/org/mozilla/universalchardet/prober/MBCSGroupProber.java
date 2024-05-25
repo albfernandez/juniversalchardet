@@ -41,8 +41,7 @@ package org.mozilla.universalchardet.prober;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MBCSGroupProber extends CharsetProber
-{
+public class MBCSGroupProber extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -59,11 +58,13 @@ public class MBCSGroupProber extends CharsetProber
 		super();
 
 
+		
+		probers.add(new GB18030Prober());
 		probers.add(new UTF8Prober());
+		probers.add(new Big5Prober());
 		probers.add(new SJISProber());
 		probers.add(new EUCJPProber());
 		probers.add(new EUCKRProber());
-		probers.add(new Big5Prober());
 		probers.add(new EUCTWProber());
 
 		reset();
@@ -81,8 +82,7 @@ public class MBCSGroupProber extends CharsetProber
 	}
 
     @Override
-    public float getConfidence()
-    {
+	public float getConfidence() {
         float bestConf = 0.0f;
         float cf;
 
@@ -107,14 +107,12 @@ public class MBCSGroupProber extends CharsetProber
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         ProbingState st;
         
         boolean keepNext = true;
@@ -140,7 +138,7 @@ public class MBCSGroupProber extends CharsetProber
         		continue;
         	}
         	st = prober.handleData(highbyteBuf, 0, highpos);
-        	if (st == ProbingState.FOUND_IT) {
+        	if (st == ProbingState.FOUND_IT || 0.99f == prober.getConfidence()) {
                 this.bestGuess = prober;
                 this.state = ProbingState.FOUND_IT;
                 break;
@@ -158,8 +156,7 @@ public class MBCSGroupProber extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
+	public final void reset() {
         this.activeNum = 0;
         for (CharsetProber prober: this.probers) {
             prober.reset();

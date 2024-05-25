@@ -37,21 +37,18 @@
 
 package org.mozilla.universalchardet.prober.statemachine;
 
-public class CodingStateMachine
-{
+public class CodingStateMachine {
     protected SMModel    model;
     protected int        currentState;
     protected int        currentCharLen;
     protected int        currentBytePos;
     
-    public CodingStateMachine(SMModel model)
-    {
+	public CodingStateMachine(SMModel model) {
         this.model = model;
         this.currentState = SMModel.START;
     }
     
-    public int nextState(byte c)
-    {
+	public int nextState(byte c) {
         int byteCls = this.model.getClass(c);
         if (this.currentState == SMModel.START) {
             this.currentBytePos = 0;
@@ -64,18 +61,15 @@ public class CodingStateMachine
         return this.currentState;
     }
     
-    public int getCurrentCharLen()
-    {
+	public int getCurrentCharLen() {
         return this.currentCharLen;
     }
     
-    public void reset()
-    {
+	public void reset() {
         this.currentState = SMModel.START;
     }
     
-    public String getCodingStateMachine()
-    {
+	public String getCodingStateMachine() {
         return this.model.getName();
     }
 }

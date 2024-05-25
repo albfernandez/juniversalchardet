@@ -13,7 +13,7 @@ public class TestCreateReaderFromFile {
 		java.io.Reader reader = null;
 		try {
 			java.io.File file = new java.io.File(args[0]);
-			reader = ReaderFactory.createReaderFromFile(file);
+			reader = ReaderFactory.createBufferedReader(file);
 			
 			// Do whatever you want with the reader
 		}

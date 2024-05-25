@@ -45,8 +45,7 @@ import org.mozilla.universalchardet.prober.distributionanalysis.SJISDistribution
 import org.mozilla.universalchardet.Constants;
 
 
-public class SJISProber extends CharsetProber
-{
+public class SJISProber extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -64,8 +63,7 @@ public class SJISProber extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public SJISProber()
-    {
+	public SJISProber() {
         super();
         this.codingSM = new CodingStateMachine(smModel);
         this.contextAnalyzer = new SJISContextAnalysis();
@@ -75,14 +73,12 @@ public class SJISProber extends CharsetProber
     }
 
     @Override
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         return Constants.CHARSET_SHIFT_JIS;
     }
 
     @Override
-    public float getConfidence()
-    {
+	public float getConfidence() {
         float contextCf = this.contextAnalyzer.getConfidence();
         float distribCf = this.distributionAnalyzer.getConfidence();
         
@@ -90,14 +86,12 @@ public class SJISProber extends CharsetProber
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         int codingState;
         
         int maxPos = offset + length;
@@ -136,8 +130,7 @@ public class SJISProber extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
+	public final void reset() {
         this.codingSM.reset();
         this.state = ProbingState.DETECTING;
         this.contextAnalyzer.reset();

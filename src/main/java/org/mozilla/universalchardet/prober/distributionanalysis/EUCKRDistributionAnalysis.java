@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.distributionanalysis;
 
-public class EUCKRDistributionAnalysis extends CharDistributionAnalysis
-{
+public class EUCKRDistributionAnalysis extends CharDistributionAnalysis {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -52,16 +51,14 @@ public class EUCKRDistributionAnalysis extends CharDistributionAnalysis
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public EUCKRDistributionAnalysis()
-    {
+	public EUCKRDistributionAnalysis() {
         super();
         this.typicalDistributionRatio = EUCKR_TYPICAL_DISTRIBUTION_RATIO;
         this.charToFreqOrder = euckrCharToFreqOrder;
     }
 
     @Override
-    protected int getOrder(final byte[] buf, int offset)
-    {
+	protected int getOrder(final byte[] buf, int offset) {
         int highbyte = buf[offset] & 0xFF;
         if (highbyte >= HIGHBYTE_BEGIN) {
             int lowbyte = buf[offset+1] & 0xFF;

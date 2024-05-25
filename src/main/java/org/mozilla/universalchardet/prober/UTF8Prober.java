@@ -43,8 +43,7 @@ import org.mozilla.universalchardet.prober.statemachine.UTF8SMModel;
 import org.mozilla.universalchardet.Constants;
 
 
-public class UTF8Prober extends CharsetProber
-{
+public class UTF8Prober extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -64,8 +63,7 @@ public class UTF8Prober extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public UTF8Prober()
-    {
+	public UTF8Prober() {
         super();
         this.numOfMBChar = 0;
         this.codingSM = new CodingStateMachine(smModel);
@@ -73,13 +71,11 @@ public class UTF8Prober extends CharsetProber
         reset();
     }
 
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         return Constants.CHARSET_UTF_8;
     }
 
-    public ProbingState handleData(final byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(final byte[] buf, int offset, int length) {
         int codingState;
 
         int maxPos = offset + length;
@@ -109,20 +105,17 @@ public class UTF8Prober extends CharsetProber
         return this.state;
     }
 
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
-    public void reset()
-    {
+	public final void reset() {
         this.codingSM.reset();
         this.numOfMBChar = 0;
         this.state = ProbingState.DETECTING;
     }
 
-    public float getConfidence()
-    {
+	public float getConfidence() {
         float unlike = 0.99f;
         
         if (this.numOfMBChar < 6) {

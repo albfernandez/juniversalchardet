@@ -182,7 +182,7 @@ public class Latin1Prober extends CharsetProber {
 	}
 
 	@Override
-	public void reset() {
+	public final void reset() {
 		this.state = ProbingState.DETECTING;
 		this.lastCharClass = OTH;
 		for (int i = 0; i < this.freqCounter.length; ++i) {

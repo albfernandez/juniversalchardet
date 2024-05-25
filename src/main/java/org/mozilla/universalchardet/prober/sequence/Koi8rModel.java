@@ -40,13 +40,11 @@ package org.mozilla.universalchardet.prober.sequence;
 import org.mozilla.universalchardet.Constants;
 
 
-public class Koi8rModel extends CyrillicModel
-{
+public class Koi8rModel extends CyrillicModel {
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public Koi8rModel()
-    {
+	public Koi8rModel() {
         super(koi8rCharToOrderMap, Constants.CHARSET_KOI8_R);
     }
     

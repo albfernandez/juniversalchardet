@@ -45,8 +45,7 @@ import org.mozilla.universalchardet.prober.distributionanalysis.EUCJPDistributio
 import org.mozilla.universalchardet.Constants;
 
 
-public class EUCJPProber extends CharsetProber
-{
+public class EUCJPProber extends CharsetProber {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -64,8 +63,7 @@ public class EUCJPProber extends CharsetProber
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public EUCJPProber()
-    {
+	public EUCJPProber() {
         super();
         this.codingSM = new CodingStateMachine(smModel);
         this.contextAnalyzer = new EUCJPContextAnalysis();
@@ -75,14 +73,12 @@ public class EUCJPProber extends CharsetProber
     }
 
     @Override
-    public String getCharSetName()
-    {
+	public String getCharSetName() {
         return Constants.CHARSET_EUC_JP;
     }
 
     @Override
-    public float getConfidence()
-    {
+	public float getConfidence() {
         float contextCf = this.contextAnalyzer.getConfidence();
         float distribCf = this.distributionAnalyzer.getConfidence();
         
@@ -90,14 +86,12 @@ public class EUCJPProber extends CharsetProber
     }
 
     @Override
-    public ProbingState getState()
-    {
+	public ProbingState getState() {
         return this.state;
     }
 
     @Override
-    public ProbingState handleData(byte[] buf, int offset, int length)
-    {
+	public ProbingState handleData(byte[] buf, int offset, int length) {
         int codingState;
         
         int maxPos = offset + length;
@@ -137,8 +131,7 @@ public class EUCJPProber extends CharsetProber
     }
 
     @Override
-    public void reset()
-    {
+	public final void reset() {
         this.codingSM.reset();
         this.state = ProbingState.DETECTING;
         this.contextAnalyzer.reset();
@@ -147,6 +140,6 @@ public class EUCJPProber extends CharsetProber
     }
 
     @Override
-    public void setOption()
-    {}
+	public void setOption() {
+	}
 }

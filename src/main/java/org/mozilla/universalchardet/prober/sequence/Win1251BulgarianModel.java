@@ -40,13 +40,11 @@ package org.mozilla.universalchardet.prober.sequence;
 import org.mozilla.universalchardet.Constants;
 
 
-public class Win1251BulgarianModel extends BulgarianModel
-{
+public class Win1251BulgarianModel extends BulgarianModel {
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public Win1251BulgarianModel()
-    {
+	public Win1251BulgarianModel() {
         super(win1251BulgarianCharToOrderMap, Constants.CHARSET_WINDOWS_1251);
     }
     

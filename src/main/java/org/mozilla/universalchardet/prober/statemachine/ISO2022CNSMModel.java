@@ -44,8 +44,7 @@ import static org.mozilla.universalchardet.prober.statemachine.PkgInt.UNIT_MASK_
 import org.mozilla.universalchardet.Constants;
 
 
-public class ISO2022CNSMModel extends SMModel
-{
+public class ISO2022CNSMModel extends SMModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -55,8 +54,7 @@ public class ISO2022CNSMModel extends SMModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public ISO2022CNSMModel()
-    {
+	public ISO2022CNSMModel() {
         super(
                 new PkgInt(INDEX_SHIFT_4BITS, SHIFT_MASK_4BITS, BIT_SHIFT_4BITS, UNIT_MASK_4BITS, iso2022cnClassTable),
                 ISO2022CN_CLASS_FACTOR,

@@ -44,8 +44,7 @@ import static org.mozilla.universalchardet.prober.statemachine.PkgInt.UNIT_MASK_
 import org.mozilla.universalchardet.Constants;
 
 
-public class EUCJPSMModel extends SMModel
-{
+public class EUCJPSMModel extends SMModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -55,8 +54,7 @@ public class EUCJPSMModel extends SMModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public EUCJPSMModel()
-    {
+	public EUCJPSMModel() {
         super(
                 new PkgInt(INDEX_SHIFT_4BITS, SHIFT_MASK_4BITS, BIT_SHIFT_4BITS, UNIT_MASK_4BITS, eucjpClassTable),
                 EUCJP_CLASS_FACTOR,

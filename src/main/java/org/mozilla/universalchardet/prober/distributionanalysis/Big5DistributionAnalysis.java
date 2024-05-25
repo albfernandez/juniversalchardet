@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.distributionanalysis;
 
-public class Big5DistributionAnalysis extends CharDistributionAnalysis
-{
+public class Big5DistributionAnalysis extends CharDistributionAnalysis {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -54,15 +53,13 @@ public class Big5DistributionAnalysis extends CharDistributionAnalysis
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public Big5DistributionAnalysis()
-    {
+	public Big5DistributionAnalysis() {
         super();
         this.charToFreqOrder = big5CharToFreqOrder;
         this.typicalDistributionRatio = BIG5_TYPICAL_DISTRIBUTION_RATIO;
     }
     
-    protected int getOrder(final byte[] buf, int offset)
-    {
+	protected int getOrder(final byte[] buf, int offset) {
         int highbyte = buf[offset] & 0xFF;
         if (highbyte >= HIGHBYTE_BEGIN) {
             int lowbyte = buf[offset+1] & 0xFF;

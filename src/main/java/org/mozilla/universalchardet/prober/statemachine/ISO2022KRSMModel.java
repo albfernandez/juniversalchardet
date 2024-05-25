@@ -43,9 +43,7 @@ import static org.mozilla.universalchardet.prober.statemachine.PkgInt.BIT_SHIFT_
 import static org.mozilla.universalchardet.prober.statemachine.PkgInt.UNIT_MASK_4BITS;
 import org.mozilla.universalchardet.Constants;
 
-
-public class ISO2022KRSMModel extends SMModel
-{
+public class ISO2022KRSMModel extends SMModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -55,8 +53,7 @@ public class ISO2022KRSMModel extends SMModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public ISO2022KRSMModel()
-    {
+	public ISO2022KRSMModel() {
         super(
                 new PkgInt(INDEX_SHIFT_4BITS, SHIFT_MASK_4BITS, BIT_SHIFT_4BITS, UNIT_MASK_4BITS, iso2022krClassTable),
                 ISO2022KR_CLASS_FACTOR,

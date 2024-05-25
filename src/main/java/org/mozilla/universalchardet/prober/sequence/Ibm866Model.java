@@ -40,13 +40,11 @@ package org.mozilla.universalchardet.prober.sequence;
 import org.mozilla.universalchardet.Constants;
 
 
-public class Ibm866Model extends CyrillicModel
-{
+public class Ibm866Model extends CyrillicModel {
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public Ibm866Model()
-    {
+	public Ibm866Model() {
         super(ibm866CharToOrderMap, Constants.CHARSET_IBM866);
     }
     

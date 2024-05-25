@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.contextanalysis;
 
-public abstract class JapaneseContextAnalysis
-{
+public abstract class JapaneseContextAnalysis {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -52,8 +51,7 @@ public abstract class JapaneseContextAnalysis
     ////////////////////////////////////////////////////////////////
     // inner types
     ////////////////////////////////////////////////////////////////
-    protected static class Order
-    {
+	protected static class Order {
         public int order;
         public int charLength;
         
@@ -79,14 +77,13 @@ public abstract class JapaneseContextAnalysis
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public JapaneseContextAnalysis()
-    {
+	public JapaneseContextAnalysis()  {
+		super();
         tmpOrder = new Order();
         reset();
     }
     
-    public void handleData(final byte[] buf, int offset, int length)
-    {
+	public void handleData(final byte[] buf, int offset, int length) {
         if (this.done) {
             return;
         }
@@ -119,8 +116,7 @@ public abstract class JapaneseContextAnalysis
         }
     }
     
-    public void handleOneChar(final byte[] buf, int offset, int charLength)
-    {
+	public void handleOneChar(final byte[] buf, int offset, int charLength) {
         if (this.totalRel > MAX_REL_THRESHOLD) {
             this.done = true;
         }
@@ -140,8 +136,7 @@ public abstract class JapaneseContextAnalysis
         this.lastCharOrder = orderNum;
     }
 
-    public float getConfidence()
-    {
+	public float getConfidence() {
         if (this.totalRel > MINIMUM_DATA_THRESHOLD) {
             return ((float)(this.totalRel - this.relSample[0])) / this.totalRel;
         } else {
@@ -149,8 +144,7 @@ public abstract class JapaneseContextAnalysis
         }
     }
     
-    public void reset()
-    {
+	public final void reset() {
         this.totalRel = 0;
         for (int i=0; i<NUM_OF_CATEGORY; ++i) {
             this.relSample[i] = 0;
@@ -163,8 +157,7 @@ public abstract class JapaneseContextAnalysis
     public void setOption()
     {}
     
-    public boolean gotEnoughData()
-    {
+	public boolean gotEnoughData() {
         return (this.totalRel > ENOUGH_REL_THRESHOLD);
     }
     

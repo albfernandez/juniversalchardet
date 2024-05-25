@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.distributionanalysis;
 
-public abstract class JISDistributionAnalysis extends CharDistributionAnalysis
-{
+public abstract class JISDistributionAnalysis extends CharDistributionAnalysis {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -48,8 +47,7 @@ public abstract class JISDistributionAnalysis extends CharDistributionAnalysis
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public JISDistributionAnalysis()
-    {
+	public JISDistributionAnalysis() {
         super();
         this.typicalDistributionRatio = JIS_TYPICAL_DISTRIBUTION_RATIO;
         this.charToFreqOrder = jisCharToFreqOrder;

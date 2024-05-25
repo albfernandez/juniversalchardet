@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.sequence;
 
-public class BulgarianModel extends SequenceModel
-{
+public class BulgarianModel extends SequenceModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -48,8 +47,7 @@ public class BulgarianModel extends SequenceModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public BulgarianModel(short[] charToOrderMap, String name)
-    {
+	public BulgarianModel(short[] charToOrderMap, String name) {
         super(
                 charToOrderMap,
                 bulgarianLangModel,

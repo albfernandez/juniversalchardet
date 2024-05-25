@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.statemachine;
 
-public abstract class SMModel
-{
+public abstract class SMModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -67,31 +66,28 @@ public abstract class SMModel
             int[] charLenTable,
             String name)
     {
+    	super();
         this.classTable = classTable;
         this.classFactor = classFactor;
         this.stateTable = stateTable;
         this.charLenTable = charLenTable.clone();
         this.name = name;
     }
-    
-    public int getClass(byte b)
-    {
+
+	public int getClass(byte b) {
         int c = b & 0xFF;
         return this.classTable.unpack(c);
     }
     
-    public int getNextState(int cls, int currentState)
-    {
+	public int getNextState(int cls, int currentState) {
         return this.stateTable.unpack(currentState * this.classFactor + cls);
     }
     
-    public int getCharLen(int cls)
-    {
+	public int getCharLen(int cls) {
         return this.charLenTable[cls];
     }
     
-    public String getName()
-    {
+	public String getName() {
         return this.name;
     }
 }

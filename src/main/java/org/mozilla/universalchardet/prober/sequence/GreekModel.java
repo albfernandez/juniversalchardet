@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.sequence;
 
-public class GreekModel extends SequenceModel
-{
+public class GreekModel extends SequenceModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -48,8 +47,7 @@ public class GreekModel extends SequenceModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public GreekModel(short[] charToOrderMap, String name)
-    {
+	public GreekModel(short[] charToOrderMap, String name) {
         super(
                 charToOrderMap,
                 greekLangModel,

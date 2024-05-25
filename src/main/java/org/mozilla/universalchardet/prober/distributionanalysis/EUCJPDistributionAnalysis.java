@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.distributionanalysis;
 
-public class EUCJPDistributionAnalysis extends JISDistributionAnalysis
-{
+public class EUCJPDistributionAnalysis extends JISDistributionAnalysis {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -51,14 +50,12 @@ public class EUCJPDistributionAnalysis extends JISDistributionAnalysis
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public EUCJPDistributionAnalysis()
-    {
+	public EUCJPDistributionAnalysis() {
         super();
     }
 
     @Override
-    protected int getOrder(final byte[] buf, int offset)
-    {
+	protected int getOrder(final byte[] buf, int offset) {
         int highbyte = buf[offset] & 0xFF;
         if (highbyte >= HIGHBYTE_BEGIN) {
             int lowbyte = buf[offset+1] & 0xFF;

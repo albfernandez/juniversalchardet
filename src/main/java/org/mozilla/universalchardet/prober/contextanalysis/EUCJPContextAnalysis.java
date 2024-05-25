@@ -38,8 +38,7 @@
 package org.mozilla.universalchardet.prober.contextanalysis;
 
 
-public class EUCJPContextAnalysis extends JapaneseContextAnalysis
-{
+public class EUCJPContextAnalysis extends JapaneseContextAnalysis {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -55,14 +54,12 @@ public class EUCJPContextAnalysis extends JapaneseContextAnalysis
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public EUCJPContextAnalysis()
-    {
+	public EUCJPContextAnalysis() {
         super();
     }
 
     @Override
-    protected void getOrder(Order order, final byte[] buf, int offset)
-    {
+	protected void getOrder(Order order, final byte[] buf, int offset) {
         order.order = -1;
         order.charLength = 1;
         
@@ -85,8 +82,7 @@ public class EUCJPContextAnalysis extends JapaneseContextAnalysis
     }
     
     @Override
-    protected int getOrder(final byte[] buf, int offset)
-    {
+	protected int getOrder(final byte[] buf, int offset) {
         int highbyte = buf[offset] & 0xFF;
         if (highbyte == HIRAGANA_HIGHBYTE) {
             int lowbyte = buf[offset+1] & 0xFF;

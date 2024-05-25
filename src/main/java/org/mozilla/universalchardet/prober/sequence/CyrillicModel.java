@@ -37,8 +37,7 @@
 
 package org.mozilla.universalchardet.prober.sequence;
 
-public class CyrillicModel extends SequenceModel
-{
+public class CyrillicModel extends SequenceModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -48,8 +47,7 @@ public class CyrillicModel extends SequenceModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public CyrillicModel(short[] charToOrderMap, String name)
-    {
+	public CyrillicModel(short[] charToOrderMap, String name) {
         super(
                 charToOrderMap,
                 russianLangModel,

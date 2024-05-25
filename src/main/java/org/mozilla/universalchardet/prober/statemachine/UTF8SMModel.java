@@ -44,9 +44,7 @@ import static org.mozilla.universalchardet.prober.statemachine.PkgInt.BIT_SHIFT_
 import static org.mozilla.universalchardet.prober.statemachine.PkgInt.UNIT_MASK_4BITS;
 import org.mozilla.universalchardet.Constants;
 
-
-public class UTF8SMModel extends SMModel
-{
+public class UTF8SMModel extends SMModel {
     ////////////////////////////////////////////////////////////////
     // constants
     ////////////////////////////////////////////////////////////////
@@ -56,8 +54,7 @@ public class UTF8SMModel extends SMModel
     ////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////
-    public UTF8SMModel()
-    {
+	public UTF8SMModel() {
         super(
                 new PkgInt(INDEX_SHIFT_4BITS, SHIFT_MASK_4BITS, BIT_SHIFT_4BITS, UNIT_MASK_4BITS, utf8ClassTable),
                 UTF8_CLASS_FACTOR,

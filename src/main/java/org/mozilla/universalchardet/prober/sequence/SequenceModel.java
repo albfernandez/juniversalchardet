@@ -38,8 +38,7 @@
 
 package org.mozilla.universalchardet.prober.sequence;
 
-public abstract class SequenceModel
-{
+public abstract class SequenceModel {
     ////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////
@@ -60,6 +59,7 @@ public abstract class SequenceModel
             boolean keepEnglishLetter,
             String charsetName)
     {
+    	super();
         this.charToOrderMap = charToOrderMap.clone();
         this.precedenceMatrix = precedenceMatrix.clone();
         this.typicalPositiveRatio = typicalPositiveRatio;

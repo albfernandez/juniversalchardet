@@ -37,6 +37,7 @@ public final class Constants {
     public static final String CHARSET_ISO_8859_7   = "ISO-8859-7".intern();
     public static final String CHARSET_ISO_8859_8   = "ISO-8859-8".intern();
     public static final String CHARSET_BIG5         = "BIG5".intern();
+    public static final String CHARSET_GB18030      = "GB18030".intern();
     public static final String CHARSET_EUC_JP       = "EUC-JP".intern();
     public static final String CHARSET_EUC_KR       = "EUC-KR".intern();
     public static final String CHARSET_EUC_TW       = "EUC-TW".intern();
@@ -55,7 +56,17 @@ public final class Constants {
     public static final String CHARSET_UTF_32BE     = "UTF-32BE".intern();
     public static final String CHARSET_UTF_32LE     = "UTF-32LE".intern();
     public static final String CHARSET_TIS620       = "TIS620".intern();
-
+    
+    /**
+     * @deprecated Mispelled, you shoud use {@link #CHARSET_US_ASCII}
+     */
+    @Deprecated
+    public static final String CHARSET_US_ASCCI     = "US-ASCII".intern();
+    public static final String CHARSET_US_ASCII     = "US-ASCII".intern();
+    
+    public static final String CHARSET_GBK          = "GBK".intern();
+    
+    
     // WARNING: Listed below are charsets which Java does not support.
     public static final String CHARSET_HZ_GB_2312   = "HZ-GB-2312".intern(); // Simplified Chinese
     public static final String CHARSET_X_ISO_10646_UCS_4_3412 = "X-ISO-10646-UCS-4-3412".intern(); // Malformed UTF-32
