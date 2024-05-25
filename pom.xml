@@ -43,8 +43,8 @@
 	</issueManagement>
 
 	<properties>
-		<compiler.level>1.7</compiler.level>
-		<compiler.module.level>9</compiler.module.level>
+    	<maven.compiler.source>11</maven.compiler.source>
+    	<maven.compiler.target>11</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -117,9 +117,38 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
-						<configuration>
-							<source>${compiler.level}</source>
-						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>${version.spotbugs-maven-plugin}</version>
+				<configuration>
+					<effort>Max</effort>
+					<threshold>Medium</threshold>
+					<includeTests>false</includeTests>
+					<failOnError>false</failOnError>
+					<plugins>
+						<plugin>
+							<groupId>com.h3xstream.findsecbugs</groupId>
+							<artifactId>findsecbugs-plugin</artifactId>
+							<version>${version.findsecbugs-plugin}</version>
+						</plugin>
+						<plugin>
+							<groupId>com.mebigfatguy.sb-contrib</groupId>
+							<artifactId>sb-contrib</artifactId>
+							<version>${version.sb-contrib}</version>
+						</plugin>
+					</plugins>
+				</configuration>
+				<executions>
+					<execution>
+						<id>spotbugs-check</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
@@ -164,167 +193,6 @@
 				</plugins>
 			</build>			
 		</profile>
-		<profile>
-			<id>jdk7</id>
-			<activation>
-				<jdk>(,1.7]</jdk>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.7.0</version>
-						<configuration>
-							<excludes>
-								<exclude>module-info.java</exclude>
-							</excludes>
-							<source>${compiler.level}</source>
-							<target>${compiler.level}</target>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>findbugs-maven-plugin</artifactId>
-						<version>3.0.5</version>
-						<executions>
-							<execution>
-								<id>findbugs-check</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>check</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>jdk8</id>
-			<activation>
-				<jdk>1.8</jdk>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.7.0</version>
-						<configuration>
-							<excludes>
-								<exclude>module-info.java</exclude>
-							</excludes>
-							<source>${compiler.level}</source>
-							<target>${compiler.level}</target>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>com.github.spotbugs</groupId>
-						<artifactId>spotbugs-maven-plugin</artifactId>
-						<version>${version.spotbugs-maven-plugin}</version>
-						<configuration>
-							<effort>Max</effort>
-							<threshold>Medium</threshold>
-							<includeTests>false</includeTests>
-							<failOnError>false</failOnError>
-							<plugins>
-								<plugin>
-									<groupId>com.h3xstream.findsecbugs</groupId>
-									<artifactId>findsecbugs-plugin</artifactId>
-									<version>${version.findsecbugs-plugin}</version>
-								</plugin>
-								<plugin>
-									<groupId>com.mebigfatguy.sb-contrib</groupId>
-									<artifactId>sb-contrib</artifactId>
-									<version>${version.sb-contrib}</version>
-								</plugin>
-							</plugins>
-						</configuration>
-						<executions>
-							<execution>
-								<id>spotbugs-check</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>check</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>jdk9on</id>
-			<activation>
-				<jdk>[9,)</jdk>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.8.1</version>
-						<executions>
-							<execution>
-								<id>default-compile</id>
-								<configuration>
-									<release>${compiler.module.level}</release>
-								</configuration>
-							</execution>
-							<execution>
-								<id>base-compile</id>
-								<goals>
-									<goal>compile</goal>
-								</goals>
-								<configuration>
-									<excludes>
-										<exclude>module-info.java</exclude>
-									</excludes>
-								</configuration>
-							</execution>
-						</executions>
-						<configuration>
-							<source>${compiler.level}</source>
-							<target>${compiler.level}</target>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>com.github.spotbugs</groupId>
-						<artifactId>spotbugs-maven-plugin</artifactId>
-						<version>${version.spotbugs-maven-plugin}</version>
-						<configuration>
-							<effort>Max</effort>
-							<threshold>Medium</threshold>
-							<includeTests>false</includeTests>
-							<failOnError>false</failOnError>
-							<plugins>
-								<plugin>
-									<groupId>com.h3xstream.findsecbugs</groupId>
-									<artifactId>findsecbugs-plugin</artifactId>
-									<version>${version.findsecbugs-plugin}</version>
-								</plugin>
-								<plugin>
-									<groupId>com.mebigfatguy.sb-contrib</groupId>
-									<artifactId>sb-contrib</artifactId>
-									<version>${version.sb-contrib}</version>
-								</plugin>
-							</plugins>
-						</configuration>
-						<executions>
-							<execution>
-								<id>spotbugs-check</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>check</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
 	</profiles>
 
 </project>
