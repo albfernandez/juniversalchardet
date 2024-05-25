@@ -64,8 +64,7 @@ public class Bug8VariousFailedCharsetsTest {
 	}
 
 	private byte[] decodeBase64(String string) {
-
-		return org.apache.commons.codec.binary.Base64.decodeBase64(string);
+		return java.util.Base64.getDecoder().decode(string);
 	}
 
 }
