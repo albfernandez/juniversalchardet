@@ -1,0 +1,38 @@
+plugins {
+    id ('com.android.library') version "8.2.0"
+}
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'commons-codec:commons-codec:1.13'
+}
+
+
+
+
+
+android {
+    namespace "com.github.albfernandez.juniversalchardet"
+    compileSdkVersion 14
+    compileSdk 14
+    defaultConfig {
+        minSdkVersion 14   
+        targetSdkVersion 14
+        compileSdk 14
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+        sourceCompatibility  JavaVersion.VERSION_1_7
+        targetCompatibility  JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        disable 'ExpiredTargetSdkVersion'
+    }
+}
+
