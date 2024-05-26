@@ -325,8 +325,9 @@ public class UniversalDetector
     
     public static String detectCharset(File file) throws IOException {
 
-        try (FileInputStream fis = new FileInputStream(file)) {		
-        	
+        FileInputStream fis = null;
+        try {		
+            fis = new FileInputStream(file);
         	byte[] buf = new byte[4096];
 
 	        UniversalDetector detector = new UniversalDetector(null);
@@ -339,9 +340,16 @@ public class UniversalDetector
 	
 	        String encoding = detector.getDetectedCharset();
 	        detector.reset();	        
-	        return encoding;	
-
-        } 
+	        return encoding;
+        }
+        finally {
+        	try {
+        		fis.close();
+        	}
+            catch (IOException ignore) {
+               //
+        	}
+        }
     }
     
 

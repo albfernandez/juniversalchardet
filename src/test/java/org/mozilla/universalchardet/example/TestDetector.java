@@ -50,8 +50,10 @@ public class TestDetector {
 
 		byte[] buf = new byte[4096];
 		String fileName = args[0];
-		try (FileInputStream fis = new FileInputStream(fileName)) {
+		FileInputStream fis = null;
+		try {
 
+			fis = new FileInputStream(fileName);
 			// (1)
 			UniversalDetector detector = new UniversalDetector();
 
@@ -73,6 +75,14 @@ public class TestDetector {
 
 			// (5)
 			detector.reset();
+		}
+		finally {
+			try {
+				fis.close();
+			}
+			catch (java.io.IOException ignored) {
+				//
+			}
 		}
 	}
 }
