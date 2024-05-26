@@ -78,7 +78,9 @@ public class TestDetector {
 		}
 		finally {
 			try {
-				fis.close();
+				if (fis != null) {
+					fis.close();
+				}
 			}
 			catch (java.io.IOException ignored) {
 				//
