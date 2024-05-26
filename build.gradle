@@ -1,0 +1,37 @@
+plugins {
+    id ('com.android.library') version "8.2.0"
+}
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+
+
+
+
+android {
+    namespace "com.github.albfernandez.juniversalchardet"
+    compileSdkVersion 32
+    compileSdk 32
+    defaultConfig {
+        minSdkVersion 32   
+        targetSdkVersion 32
+        compileSdk 32
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+        sourceCompatibility  JavaVersion.VERSION_11
+        targetCompatibility  JavaVersion.VERSION_11
+    }
+    lintOptions {
+        disable 'ExpiredTargetSdkVersion'
+    }
+}
+
