@@ -14,15 +14,16 @@ public class ByteArrayReaderTest {
 
 	@Test
 	public void utf8() throws IOException {
-		try(BufferedReader bufferedReader = ReaderFactory.createBufferedReader(TEST_STRING.getBytes(StandardCharsets.UTF_8))) {
+		byte[] data = TEST_STRING.getBytes(StandardCharsets.UTF_8);
+		try(BufferedReader bufferedReader = ReaderFactory.createBufferedReader(data)) {
 			assertEquals(TEST_STRING, bufferedReader.readLine());
 		}
 	}
 
 	@Test
 	public void ISO_8859_1() throws IOException {
-		try(BufferedReader bufferedReader = ReaderFactory.createBufferedReader(
-				TEST_STRING.getBytes(StandardCharsets.ISO_8859_1))) {
+		byte[] data = TEST_STRING.getBytes(StandardCharsets.ISO_8859_1);
+		try(BufferedReader bufferedReader = ReaderFactory.createBufferedReader(data)) {
 			assertEquals(TEST_STRING, bufferedReader.readLine());
 		}
 	}
