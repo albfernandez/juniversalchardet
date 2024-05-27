@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ByteArrayReaderTest {
 	
-	private String TEST_STRING = "°";
+	private String TEST_STRING = "\u00b0";
 
 	@Test
 	public void utf8() throws IOException {
