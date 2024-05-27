@@ -15,13 +15,14 @@ import java.io.PushbackInputStream;
  *
  * <p>The
  * <a href="http://www.unicode.org/unicode/faq/utf_bom.html">Unicode FAQ</a>
- * defines 5 types of BOMs:<ul>
+ * defines 5 types of BOMs:</p>
+ * <ul>
  * <li><pre>00 00 FE FF  = UTF-32, big-endian</pre></li>
  * <li><pre>FF FE 00 00  = UTF-32, little-endian</pre></li>
  * <li><pre>FE FF        = UTF-16, big-endian</pre></li>
  * <li><pre>FF FE        = UTF-16, little-endian</pre></li>
  * <li><pre>EF BB BF     = UTF-8</pre></li>
- * </ul></p>
+ * </ul>
  *
  * <p>Use the {@link #getBOM()} method to know whether a BOM has been detected
  * or not.
@@ -83,6 +84,7 @@ public class UnicodeBOMInputStream extends InputStream {
 
 		/**
 		 * Returns the bytes corresponding to this <code>BOM</code> value.
+		 * @return bytes
 		 */
 		public final byte[] getBytes() {
 			final int length = bytes.length;
@@ -103,7 +105,7 @@ public class UnicodeBOMInputStream extends InputStream {
 			this.description = description;
 		}
 
-	} // BOM
+	}
 
 	private final PushbackInputStream in;
 	private final BOM bom;
