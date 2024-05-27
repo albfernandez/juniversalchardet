@@ -39,11 +39,11 @@ gradle check
 
 ```bash
 # change release in pom.xml and README.md
-mvn clean package install -Prelease
-mvn clean package install deploy -Prelease
+mvn clean package install verify -Pdeploy
+mvn clean package install verify deploy -Pdeploy
 git add -A
-git commit -S -m 'Release <1.0.0>'
-git tag -a <1.0.0> -m "Tagging release <1.0.0>"
+git commit -S -m 'Release <v1.0.0>'
+git tag -a <v1.0.0> -m "Tagging release <1.0.0>"
 git push
 git push --tags
 ```
