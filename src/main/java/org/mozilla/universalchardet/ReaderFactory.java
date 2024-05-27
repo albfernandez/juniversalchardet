@@ -95,7 +95,7 @@ public final class ReaderFactory {
 		if (!cs.name().contains("UTF")) {
 			return new BufferedReader(new InputStreamReader(new ByteArrayInputStream(data), cs));
 		}
-		return new BufferedReader(new InputStreamReader(new UnicodeBOMInputStream(new ByteArrayInputStream(data))));
+		return new BufferedReader(new InputStreamReader(new UnicodeBOMInputStream(new ByteArrayInputStream(data)), cs));
 	}
 	
 	/**
