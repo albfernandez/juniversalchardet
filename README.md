@@ -6,10 +6,6 @@
 juniversalchardet is a Java port of "universalchardet",
 that is the encoding detector library of Mozilla.
 
-Mozilla repo is available at 
-http://hg.mozilla.org/mozilla-central/file/tip/extensions/universalchardet/
-
-
 
 ## Encodings that can be detected
 
