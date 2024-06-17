@@ -37,46 +37,64 @@ import java.io.OutputStream;
  *
  */
 public class EncodingDetectorOutputStream extends OutputStream {
+	
 	private OutputStream out;
 	private final UniversalDetector detector = new UniversalDetector(null);
-	
+
+	/**
+	 * Create stream
+	 * @param out OutputStream
+	 */
 	public EncodingDetectorOutputStream(OutputStream out) {
 		super();
 		this.out = out;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void close() throws IOException {
 		out.close();
 		detector.dataEnd();
 	}
 
-
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public void flush() throws IOException {
 		out.flush();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void write(byte[] b, int off, int len) throws IOException {
 		out.write(b, off, len);
 		if (!detector.isDone()) {
 			detector.handleData(b, off, len);
-		}		
-		
+		}
+
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void write(byte[] b) throws IOException {
-		this.write(b,0, b.length);
+		this.write(b, 0, b.length);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void write(int b) throws IOException {
-		this.write(new byte[]{(byte) b});
+		this.write(new byte[] { (byte) b });
 	}
+
 	/**
 	 * Gets the detected charset, null if not yet detected.
 	 * @return The detected charset
 	 */
 	public String getDetectedCharset() {
-        return detector.getDetectedCharset();
-    }
-	
+		return detector.getDetectedCharset();
+	}
 }

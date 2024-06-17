@@ -29,6 +29,9 @@ the terms of any one of the MPL, the GPL or the LGPL.
 
 package org.mozilla.universalchardet;
 
+/**
+ * Supported charsets
+ */
 public final class Constants {
     public static final String CHARSET_ISO_2022_JP  = "ISO-2022-JP".intern();
     public static final String CHARSET_ISO_2022_CN  = "ISO-2022-CN".intern();

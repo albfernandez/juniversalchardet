@@ -45,25 +45,37 @@ public class EncodingDetectorInputStream extends InputStream {
 	 * @param in The InputStream to read from
 	 */
 	public EncodingDetectorInputStream(InputStream in) {
+		super();
 		this.in = in;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public int available() throws IOException {
 		return in.available();
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public void close() throws IOException {
 		in.close();
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public void mark(int readlimit) {
 		in.mark(readlimit);
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean markSupported() {
 		return in.markSupported();
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public int read() throws IOException {
 		byte[] data = new byte[1];
 		int nrOfBytesRead = this.read(data, 0, 1);
@@ -72,7 +84,9 @@ public class EncodingDetectorInputStream extends InputStream {
 		}
 		return -1;
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public int read(byte[] b, int off, int len) throws IOException {
 		final int nrOfBytesRead = in.read(b, off, len);
 		if (!detector.isDone() && nrOfBytesRead > 0) {
@@ -83,15 +97,21 @@ public class EncodingDetectorInputStream extends InputStream {
 		}
 		return nrOfBytesRead;
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public int read(byte[] b) throws IOException {
 		return this.read(b, 0, b.length);
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public void reset() throws IOException {
 		in.reset();
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public long skip(long n) throws IOException {
 		if (detector.isDone()) {
 			return in.skip(n);
