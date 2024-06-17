@@ -298,6 +298,9 @@ public class UniversalDetector
             // do nothing
         } else if (this.inputState == InputState.PURE_ASCII && this.onlyPrintableASCII) {
         	this.detectedCharset = Constants.CHARSET_US_ASCII;
+        	if (listener != null) {
+        		this.listener.report(this.detectedCharset);
+        	}
         }
         else {
             // do nothing
