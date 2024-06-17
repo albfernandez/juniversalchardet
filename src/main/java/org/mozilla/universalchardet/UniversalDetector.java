@@ -282,9 +282,7 @@ public class UniversalDetector {
         
         if (this.detectedCharset != null) {
             this.done = true;
-            if (this.listener != null) {
-                this.listener.report(this.detectedCharset);
-            }
+            notifyListener(this.detectedCharset);
             return;
         }
         
@@ -303,14 +301,13 @@ public class UniversalDetector {
             
             if (maxProberConfidence > MINIMUM_THRESHOLD) {
                 this.detectedCharset = this.probers[maxProber].getCharSetName();
-                if (this.listener != null) {
-                    this.listener.report(this.detectedCharset);
-                }
+                notifyListener(this.detectedCharset);
             }
         } else if (this.inputState == InputState.ESC_ASCII) {
             // do nothing
         } else if (this.inputState == InputState.PURE_ASCII && this.onlyPrintableASCII) {
         	this.detectedCharset = CHARSET_US_ASCII;
+        	notifyListener(this.detectedCharset);
         }
         else {
             // do nothing
@@ -338,6 +335,12 @@ public class UniversalDetector {
             }
         }
     }
+	
+	private void notifyListener (String detectedCharset) {
+		if (this.listener != null && detectedCharset != null && detectedCharset.trim().length() > 0) {
+			this.listener.report(detectedCharset);
+		}
+	}
     
     /**
      * Gets the charset of a File.
