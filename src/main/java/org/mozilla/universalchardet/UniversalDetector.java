@@ -66,24 +66,16 @@ import org.mozilla.universalchardet.prober.MBCSGroupProber;
 import org.mozilla.universalchardet.prober.SBCSGroupProber;
 
 public class UniversalDetector {
-    ////////////////////////////////////////////////////////////////
-    // constants
-    ////////////////////////////////////////////////////////////////
-    public static final float SHORTCUT_THRESHOLD = 0.95f;
-    public static final float MINIMUM_THRESHOLD = 0.20f;
-    
 
-    ////////////////////////////////////////////////////////////////
-    // inner types
-    ////////////////////////////////////////////////////////////////
-	public enum InputState {
-		PURE_ASCII, ESC_ASCII, HIGHBYTE
+    private static final float MINIMUM_THRESHOLD = 0.20f;
+
+	private  enum InputState {
+		PURE_ASCII, 
+		ESC_ASCII, 
+		HIGHBYTE
 	}
     
 
-    ////////////////////////////////////////////////////////////////
-    // fields
-    ////////////////////////////////////////////////////////////////
     private InputState  inputState;
     private boolean     done;
     private boolean     start;
@@ -97,19 +89,20 @@ public class UniversalDetector {
     
     private CharsetListener     listener;
 
-    
-    ////////////////////////////////////////////////////////////////
-    // methods
-    ////////////////////////////////////////////////////////////////
-    
+        
+    /**
+     * Create UniversalDetector
+     */
     public UniversalDetector() {
     	this(null);
     }
     /**
+     * Create UniversalDetector
      * @param listener a listener object that is notified of
      *         the detected encocoding. Can be null.
      */
 	public UniversalDetector(CharsetListener listener) {
+		super();
         this.listener = listener;
         this.escCharsetProber = null;
         this.probers = new CharsetProber[3];
@@ -153,12 +146,17 @@ public class UniversalDetector {
         if (this.done) {
             return;
         }
+        if (length == 0) {
+        	return;
+        }
+        
         
         if (length > 0) {
             this.gotData = true;
         }
         
         if (this.start) {
+        	// Check utf8 for the first bytes
             this.start = false;
             if (length > 3) {
                 String detectedBOM = detectCharsetFromBOM(buf, offset);                
@@ -168,7 +166,7 @@ public class UniversalDetector {
                     return;
                 }
             }
-        } // if (start) end
+        }
         
         int maxPos = offset + length;
         for (int i=offset; i<maxPos; ++i) {
@@ -268,7 +266,7 @@ public class UniversalDetector {
 			    break;
 			default: 
 				break;
-			} // swich end
+			}
 		}
 		return null;
 	}
