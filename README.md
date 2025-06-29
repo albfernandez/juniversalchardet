@@ -175,7 +175,7 @@ Put this dependency in your pom.xml
 <dependency>
 	<groupId>com.github.albfernandez</groupId>
 	<artifactId>juniversalchardet</artifactId>
-	<version>2.4.0</version>
+	<version>2.5.0</version>
 </dependency>
 
 ```
@@ -185,7 +185,7 @@ Put this dependency in your pom.xml
 Put this line in your build.gradle
 
 ```groovy
-implementation 'com.github.albfernandez:juniversalchardet:2.4.0'
+implementation 'com.github.albfernandez:juniversalchardet:2.5.0'
 ```
 
 ## Building from sources
@@ -221,9 +221,11 @@ Lesser General Public License 2.1 or later.
 ## Compatibility
 
 
-juniversalchardet requires JDK 7 or higher.
+juniversalchardet 2.x requires JDK 7 or higher.
+juniversalchardet 3.x requieres JDK 11 or higher.
 
 For Android:
 
 - juniversalchardet 2.0.x requieres Android 4 (API Level 14)
 - juniversalchardet 2.1.x and newer requires Android 8 (API Level 26)
+- juniversalchardet 3.0.x and newer requieres Android 12 (API Level 32)
