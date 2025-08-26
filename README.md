@@ -226,6 +226,7 @@ juniversalchardet 3.x requieres JDK 11 or higher.
 
 For Android:
 
-- juniversalchardet 2.0.x requieres Android 4 (API Level 14)
+- juniversalchardet 2.0.x requires Android 4 (API Level 14)
 - juniversalchardet 2.1.x and newer requires Android 8 (API Level 26)
-- juniversalchardet 3.0.x and newer requieres Android 12 (API Level 32)
+
+- juniversalchardet 3.0.x and newer requires Android 12 (API Level 32)
