@@ -218,6 +218,8 @@ Alternatively, the library may be used under the terms of either
 the GNU General Public License Version 2 or later, or the GNU
 Lesser General Public License 2.1 or later.
 
+SPDX-License-Identifier: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+
 ## Compatibility
 
 
