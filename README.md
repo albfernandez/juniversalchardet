@@ -175,7 +175,7 @@ Put this dependency in your pom.xml
 <dependency>
 	<groupId>com.github.albfernandez</groupId>
 	<artifactId>juniversalchardet</artifactId>
-	<version>2.4.0</version>
+	<version>2.5.1</version>
 </dependency>
 
 ```
@@ -225,5 +225,5 @@ juniversalchardet requires JDK 7 or higher.
 
 For Android:
 
-- juniversalchardet 2.0.x requieres Android 4 (API Level 14)
+- juniversalchardet 2.0.x requires Android 4 (API Level 14)
 - juniversalchardet 2.1.x and newer requires Android 8 (API Level 26)
