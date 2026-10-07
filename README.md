@@ -218,14 +218,18 @@ Alternatively, the library may be used under the terms of either
 the GNU General Public License Version 2 or later, or the GNU
 Lesser General Public License 2.1 or later.
 
+SPDX-License-Identifier: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+
 ## Compatibility
 
 
 juniversalchardet 2.x requires JDK 7 or higher.
-juniversalchardet 3.x requieres JDK 11 or higher.
+juniversalchardet 3.x requires JDK 11 or higher.
 
 For Android:
 
-- juniversalchardet 2.0.x requieres Android 4 (API Level 14)
+- juniversalchardet 2.0.x requires Android 4 (API Level 14)
 - juniversalchardet 2.1.x and newer requires Android 8 (API Level 26)
 - juniversalchardet 3.0.x and newer requires Android 12 (API Level 32)
+
+
