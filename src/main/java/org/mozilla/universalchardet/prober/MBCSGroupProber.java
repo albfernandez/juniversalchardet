@@ -57,10 +57,8 @@ public class MBCSGroupProber extends CharsetProber {
 	public MBCSGroupProber() {
 		super();
 
-
-		
-		probers.add(new GB18030Prober());
 		probers.add(new UTF8Prober());
+		probers.add(new GB18030Prober());
 		probers.add(new Big5Prober());
 		probers.add(new SJISProber());
 		probers.add(new EUCJPProber());
